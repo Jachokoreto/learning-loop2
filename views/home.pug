@@ -1,0 +1,24 @@
+style
+	include ../public/style.css
+link(href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet")
+body 
+	.banner
+		h1 Scuff Domino
+		p WHERE YOU CAN GET CHEAPER PIZZA
+
+	.div
+		.row
+			each price in prices
+				.column
+					.card 
+						img(src=price.product.images[0])
+						.lower
+							.info
+								h3.name #{price.product.name}
+								p #{price.currency.toUpperCase()} #{price.unit_amount / 100}
+							form(action="/create-checkout-session/" + price.id method="POST")
+								button(type="submit" class="add") ADD
+	
+
+
+
